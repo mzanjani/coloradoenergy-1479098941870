@@ -5,7 +5,7 @@ module.exports = {
        return when.promise(function(resolve) {
            // Do whatever work is needed to check username is a valid
            // user.
-           var valid = false;
+           //var valid = false;
            if (valid) {
                // Resolve with the user object. It must contain
                // properties 'username' and 'permissions'
@@ -21,7 +21,7 @@ module.exports = {
        return when.promise(function(resolve) {
            // Do whatever work is needed to validate the username/password
            // combination.
-           var valid = false;
+           //var valid = false;
            if (valid) {
                // Resolve with the user object. Equivalent to having
                // called users(username);
