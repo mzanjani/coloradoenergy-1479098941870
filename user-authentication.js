@@ -38,7 +38,7 @@ module.exports = {
        return when.promise(function(resolve) {
            // Resolve with the user object for the default user.
            // If no default user exists, resolve with null.
-           resolve({anonymous: true, permissions:"read"});
+           resolve({anonymous: false, permissions:""});
        });
    }
 }
