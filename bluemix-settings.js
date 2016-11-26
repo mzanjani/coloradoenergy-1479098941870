@@ -48,7 +48,7 @@ var settings = module.exports = {
     // the password must be an md5 hash  eg.. 5f4dcc3b5aa765d61d8327deb882cf99 ('password')
     //httpAdminAuth: {user:"user",pass:"5f4dcc3b5aa765d61d8327deb882cf99"},
     
-    adminAuth: require("./user-authentication");
+    adminAuth: require("./user-authentication"),
 
     // Serve up the welcome page
     httpStatic: path.join(__dirname,"public"),
