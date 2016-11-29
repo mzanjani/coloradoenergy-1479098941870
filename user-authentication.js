@@ -47,9 +47,10 @@ module.exports = {
     						var err = textStatus + ", " + error;
     						console.log( "MZ: Request Failed: " + err );
     						console.log( "MZ: Request Failed: " + jqxhr );
-    						for (attrName in jqxhr) {
+    						for (var attrName in jqxhr) {
     							console.log("MZ: " + jqxhr[attrName]);
     						}
+    						console.log( "MZ: Attrs Ended!");
 						});
 					console.log("MZ: After info " + username);
 				}
