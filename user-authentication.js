@@ -22,7 +22,7 @@ module.exports = {
 			// Do whatever work is needed to validate the username/password
 			// combination.
 			console.log("MZ: Checking userid " + username);
-			var jsdom = require('node-jsdom').jsdom
+			var jsdom = require('jsdom').jsdom
 				, $ = require('jQuery');
 			console.log("MZ: Setup " + username);
 			$.ajaxSetup({
