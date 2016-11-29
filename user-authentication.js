@@ -23,34 +23,43 @@ module.exports = {
 			// combination.
 			console.log("MZ: Checking userid " + username);
  			
-// 			require("jsdom").env("", function(err, window) {
-//    			if (err) {
-//        			console.error(err);
-//    			} else {
-//	    			var $ = require("jquery")(window);
-//					console.log("MZ: Setup " + username);
-//					$.ajaxSetup({
-//						headers: { 
-//			   			}
-//					});
-//					console.log("MZ: Checking info " + username);
-//	    			$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
-//    	  				console.log("MZ " + jsondata.authorization_endpoint);
-//    				});
-//				}
-//
-//			});
-	    	var $ = require("jquery");
-			console.log("MZ: Setup " + username);
-			$.ajaxSetup({
-				headers: { 
-			   	}
+ 			require("jsdom").env("", function(err, window) {
+    			if (err) {
+        			console.error(err);
+    			} else {
+	    			var $ = require("jquery")(window);
+					console.log("MZ: Setup " + username);
+					$.ajaxSetup({
+						headers: { 
+			   			}
+					});
+					console.log("MZ: Checking info " + username);
+	    			$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
+    	  				console.log("MZ " + jsondata.authorization_endpoint);
+    				});
+	    			$.getJSON('http://api.ng.bluemix.net/info')
+  						.done(function( json ) {
+    						console.log( "MZ: JSON Data: " + json.users[ 3 ].name );
+  						})
+  						.fail(function( jqxhr, textStatus, error ) {
+    						var err = textStatus + ", " + error;
+    						console.log( "MZ: Request Failed: " + err );
+						});
+					console.log("MZ: After info " + username);
+				}
+
 			});
-			console.log("MZ: Checking info " + username);
-	    	$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
-    	  		console.log("MZ " + jsondata.authorization_endpoint);
-    		});
-			console.log("MZ: After info " + username);
+//	    	var $ = require("jquery");
+//			console.log("MZ: Setup " + username);
+//			$.ajaxSetup({
+//				headers: { 
+//			   	}
+//			});
+//			console.log("MZ: Checking info " + username);
+//	    	$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
+//    	  		console.log("MZ " + jsondata.authorization_endpoint);
+//    		});
+//			console.log("MZ: After info " + username);
     		
            var valid = true;
            if (valid) {
