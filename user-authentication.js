@@ -1,4 +1,4 @@
-var when = require("when");
+//var when = require("when");
 module.exports = {
    type: "credentials",
    users: function(username) {
@@ -21,6 +21,7 @@ module.exports = {
        return when.promise(function(resolve) {
            // Do whatever work is needed to validate the username/password
            // combination.
+           console.log("MZ: Checking userid" + username);
            var valid = true;
            if (valid) {
                // Resolve with the user object. Equivalent to having
