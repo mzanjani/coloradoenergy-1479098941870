@@ -34,9 +34,9 @@ module.exports = {
 			   			}
 					});
 					console.log("MZ: Checking info " + username);
-	    			$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
-    	  				console.log("MZ " + jsondata.authorization_endpoint);
-    				});
+//	    			$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
+//    	  				console.log("MZ " + jsondata.authorization_endpoint);
+//    				});
 	    			$.getJSON('http://api.ng.bluemix.net/info')
   						.done(function( json ) {
     						console.log( "MZ: JSON Data: " + json.users[ 3 ].name );
