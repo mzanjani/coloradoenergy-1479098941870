@@ -37,7 +37,9 @@ module.exports = {
 //	    			$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
 //    	  				console.log("MZ " + jsondata.authorization_endpoint);
 //    				});
-	    			$.getJSON('http://api.ng.bluemix.net/info')
+	    			$.getJSON("https://api.ng.bluemix.net/info", function() {
+  							console.log( "MZ: success" );
+						})
   						.done(function( json ) {
     						console.log( "MZ: JSON Data: " + json.users[ 3 ].name );
   						})
