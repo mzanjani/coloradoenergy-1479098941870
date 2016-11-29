@@ -22,34 +22,36 @@ module.exports = {
 			// Do whatever work is needed to validate the username/password
 			// combination.
 			console.log("MZ: Checking userid " + username);
-			//var jsdom = require('jsdom').jsdom
-			//	, $ = require('jQuery');
-			
-//			var jsdom = require('jsdom').jsdom
-//  				, myWindow = jsdom().createWindow()
-//  				, $ = require('jQuery')
-//  				, jq = require('jQuery').create()
-//  				, jQuery = require('jQuery').create(myWindow)
-// 				;
  			
- 			require("jsdom").env("", function(err, window) {
-    			if (err) {
-        			console.error(err);
-    			} else {
-	    			var $ = require("jquery")(window);
-					console.log("MZ: Setup " + username);
-					$.ajaxSetup({
-						headers: { 
-			   			}
-					});
-					console.log("MZ: Checking info " + username);
-	    			$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
-    	  				console.log("MZ " + jsondata.authorization_endpoint);
-    				});
-				}
-
+// 			require("jsdom").env("", function(err, window) {
+//    			if (err) {
+//        			console.error(err);
+//    			} else {
+//	    			var $ = require("jquery")(window);
+//					console.log("MZ: Setup " + username);
+//					$.ajaxSetup({
+//						headers: { 
+//			   			}
+//					});
+//					console.log("MZ: Checking info " + username);
+//	    			$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
+//    	  				console.log("MZ " + jsondata.authorization_endpoint);
+//    				});
+//				}
+//
+//			});
+	    	var $ = require("jquery");
+			console.log("MZ: Setup " + username);
+			$.ajaxSetup({
+				headers: { 
+			   	}
 			});
-
+			console.log("MZ: Checking info " + username);
+	    	$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
+    	  		console.log("MZ " + jsondata.authorization_endpoint);
+    		});
+			console.log("MZ: After info " + username);
+    		
            var valid = true;
            if (valid) {
                // Resolve with the user object. Equivalent to having
