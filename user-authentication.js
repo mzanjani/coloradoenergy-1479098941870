@@ -46,6 +46,7 @@ module.exports = {
   						.fail(function( jqxhr, textStatus, error ) {
     						var err = textStatus + ", " + error;
     						console.log( "MZ: Request Failed: " + err );
+    						console.log( "MZ: Request Failed: " + jqxhr );
 						});
 					console.log("MZ: After info " + username);
 				}
