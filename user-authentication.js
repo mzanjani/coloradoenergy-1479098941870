@@ -18,10 +18,19 @@ module.exports = {
        });
    },
    authenticate: function(username,password) {
-       return when.promise(function(resolve) {
-           // Do whatever work is needed to validate the username/password
-           // combination.
-           console.log("MZ: Checking userid" + username);
+		return when.promise(function(resolve) {
+			// Do whatever work is needed to validate the username/password
+			// combination.
+			console.log("MZ: Checking userid " + username);
+			var $ = require('jQuery');
+			$.ajaxSetup({
+				headers: { 
+			   	}
+			});
+	    	$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
+    	  		console.log("MZ " + jsondata.authorization_endpoint);
+    		});
+
            var valid = true;
            if (valid) {
                // Resolve with the user object. Equivalent to having
