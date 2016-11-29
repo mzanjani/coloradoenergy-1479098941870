@@ -1,4 +1,4 @@
-//var when = require("when");
+var when = require("when");
 module.exports = {
    type: "credentials",
    users: function(username) {
