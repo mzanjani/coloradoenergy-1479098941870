@@ -22,11 +22,14 @@ module.exports = {
 			// Do whatever work is needed to validate the username/password
 			// combination.
 			console.log("MZ: Checking userid " + username);
-			var $ = require('jQuery');
+			var jsdom = require('jsdom').jsdom
+				, $ = require('jQuery');
+			console.log("MZ: Setup " + username);
 			$.ajaxSetup({
 				headers: { 
 			   	}
 			});
+			console.log("MZ: Checking info " + username);
 	    	$.getJSON('http://api.ng.bluemix.net/info', function( jsondata ) {
     	  		console.log("MZ " + jsondata.authorization_endpoint);
     		});
