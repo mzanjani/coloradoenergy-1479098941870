@@ -38,20 +38,24 @@ module.exports = {
 					console.log("MZBody" + body);
 					console.log("A");
 					var blAuthUrl = body.authorization_endpoint + "/oauth/token";
+					var bodyVal = "grant_type=password&username=" + username + "&password=" + password;
 					request({
 						url: blAuthUrl,
 						json: true,
 						headers: {
 						    'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-                            'accept': 'application/json;charset=utf-8'
-                        }
+                            'accept': 'application/json;charset=utf-8',
+                            'authorization': 'Basic Y2Y6'
+                        },
+                        method: 'POST',
+                        body: bodyVal
 					}, function (error1, response1, body1) {
 						if (!error1 && response1.statusCode === 200) {
 							console.log("Successful");
 							var user = {username: "admin", permissions: "*"};
 							resolve(user);
 						} else {
-							console.log("Oops");
+							console.log("Oops " + response.statusCode);
 							resolve({username: "admin", permissions: "*"});
 						}
 					});
