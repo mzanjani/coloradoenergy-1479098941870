@@ -33,7 +33,6 @@ module.exports = {
 			}, function (error, response, body) {
 				console.log("MZ1111111");
 				if (!error && response.statusCode === 200) {
-					valid = true;
 					console.log("valid set to true.");
 					console.log("MZBody" + body);
 					console.log("A");
@@ -55,8 +54,8 @@ module.exports = {
 							var user = {username: "admin", permissions: "*"};
 							resolve(user);
 						} else {
-							console.log("Oops " + response.statusCode);
-							resolve({username: "admin", permissions: "*"});
+							console.log("Oops " + response1.statusCode);
+							resolve(null);
 						}
 					});
 					console.log("B");
