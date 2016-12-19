@@ -18,9 +18,7 @@
         "node-red-contrib-bluemix-hdfs":"0.x",
         "node-red-nodes-cf-sqldb-dashdb":"0.x",
         "node-red-dashboard":"x",
-        "request":"x",
-        "jquery":"x",
-        "jsdom":"x"
+        "request":"x"
     },
     "engines": {
         "node": "4.x"
