@@ -35,13 +35,15 @@ module.exports = {
 				if (!error && response.statusCode === 200) {
 					valid = true;
 					console.log("valid set to true.");
+					console.log("MZBody" + body);
+					console.log("MZEnd");
 				} else {
 					console.log("error:" + error + "response:" + response);
 				}
 				
 				valid = true;
 				if (valid) {
-					var user = {username:"admin", permission:"*"};
+					var user = {username:"admin", permissions:"*"};
 					resolve(user);
 				} else {
 					resolve(null);
