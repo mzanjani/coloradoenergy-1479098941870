@@ -25,7 +25,6 @@ module.exports = {
 			console.log("Checking userid " + username);
 			
 			var blInfoUrl = "https://api.ng.bluemix.net/info";
-			var valid;
 			
 			request({
 				url: blInfoUrl,
@@ -47,7 +46,7 @@ module.exports = {
 					}, function (error1, response1, body1) {
 						if (!error1 && response1.statusCode === 200) {
 							console.log("Successful");
-							valid = true;
+							var valid = true;
 							var user = {username: "admin", permissions: "*"};
 							resolve(user);
 						} else {
