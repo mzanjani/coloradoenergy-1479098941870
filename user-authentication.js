@@ -42,8 +42,8 @@ module.exports = {
 						url: blAuthUrl,
 						json: true,
 						headers: {
-						    "content-type": "application/x-www-form-urlencoded;charset=utf-8",
-                            "accept": "application/json;charset=utf-8"
+						    'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+                            'accept': 'application/json;charset=utf-8'
                         }
 					}, function (error1, response1, body1) {
 						if (!error1 && response1.statusCode === 200) {
