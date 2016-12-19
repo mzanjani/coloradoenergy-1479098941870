@@ -36,6 +36,7 @@ module.exports = {
 					valid = true;
 					console.log("valid set to true.");
 					console.log("MZBody" + body);
+					console.log("MZBody[]=" + body["authorization_endpoint"]);
 					console.log("MZEnd");
 				} else {
 					console.log("error:" + error + "response:" + response);
