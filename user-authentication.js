@@ -1,4 +1,5 @@
 var when = require("when");
+var request = require("request");
 module.exports = {
    type: "credentials",
    users: function(username) {
@@ -22,6 +23,21 @@ module.exports = {
 			// Do whatever work is needed to validate the username/password
 			// combination.
 			console.log("MZ: Checking userid " + username);
+			
+			var blInfoUrl = "https://api.ng.bluemix.net/info";
+			
+			request({
+				url: blInfoUrl,
+				json: true
+			}, function (error, response, body){
+				if (!error && response.statusCode === 200) {
+					valid = true;
+					console.log("valid set to true.");
+				} else {
+					console.log("error:" + error + "response:" + response);
+				}
+			}
+			);
  			
 // 			require("jsdom").env("", function(err, window) {
 //    			if (err) {
