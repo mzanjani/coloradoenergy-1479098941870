@@ -25,17 +25,28 @@ module.exports = {
 			console.log("MZ: Checking userid " + username);
 			
 			var blInfoUrl = "https://api.ng.bluemix.net/info";
+			var valid;
 			
 			request({
 				url: blInfoUrl,
 				json: true
 			}, function (error, response, body){
+				console.log("MZ1111111");
 				if (!error && response.statusCode === 200) {
 					valid = true;
 					console.log("valid set to true.");
 				} else {
 					console.log("error:" + error + "response:" + response);
 				}
+				
+				valid = true;
+				if (valid) {
+					var user = {username:"admin", permission:"*"};
+					resolve(user);
+				} else {
+					resolve(null);
+				}
+				
 			}
 			);
  			
@@ -66,18 +77,6 @@ module.exports = {
 //				}
 //
 //			});
-    		
-           var valid = true;
-           if (valid) {
-               // Resolve with the user object. Equivalent to having
-               // called users(username);
-               var user = { username: "admin", permissions: "*" };
-               resolve(user);
-           } else {
-               // Resolve with null to indicate the username/password pair
-               // were not valid.
-               resolve(null);
-           }
        });
    },
    default: function() {
