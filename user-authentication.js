@@ -30,30 +30,34 @@ module.exports = {
 			request({
 				url: blInfoUrl,
 				json: true
-			}, function (error, response, body){
+			}, function (error, response, body) {
 				console.log("MZ1111111");
 				if (!error && response.statusCode === 200) {
 					valid = true;
 					console.log("valid set to true.");
 					console.log("MZBody" + body);
 					console.log("A");
-					console.log("MZBody[]=" + body.authorization_endpoint);
+					var blAuthUrl = body.authorization_endpoint + "/oauth/token";
+					request({
+						url: blAuthUrl,
+						json: true
+					}, function (error1, response1, body1) {
+						if (!error1 && response1.statusCode === 200) {
+							console.log("Successful");
+							var user = {username: "admin", permissions:"*"};
+							resolve(user);
+						} else {
+							console.log("Oops");
+							resolve(null);
+						}
+					});
 					console.log("B");
 					console.log("MZEnd");
 				} else {
 					console.log("error:" + error + "response:" + response);
-				}
-				
-				valid = true;
-				if (valid) {
-					var user = {username:"admin", permissions:"*"};
-					resolve(user);
-				} else {
 					resolve(null);
 				}
-				
-			}
-			);
+			});
  			
 // 			require("jsdom").env("", function(err, window) {
 //    			if (err) {
